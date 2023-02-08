@@ -1,5 +1,4 @@
 'use strict';
-document.querySelector('.message').textContent = 'correct number! 🎉';
 // document.querySelector('.guess').value = 33;
 
 // document.querySelector('highscore') = highscore;
@@ -19,10 +18,13 @@ document.querySelector('.check').addEventListener('click', function() {
     
 
 // create an if else statement
+// when there is no input
 if(! guess) {
     document.querySelector('.message').textContent = '😡 No number!';
-}else if (guess === secretNum){  
+    // when user wins
+}else if (guess === secretNum){
     document.querySelector('.message').textContent = '🎉 correct number!';
+    // when user's guess is higher that our secret number
 }else if (guess > secretNum){  
     if(score > 1){
         document.querySelector('.message').textContent = '📈 Too high';
@@ -30,12 +32,18 @@ if(! guess) {
         document.querySelector('.score').textContent = score;
     }else{
         document.querySelector('.message').textContent = '😔 You lost !!!';
+        document.querySelector('.score').textContent = 0;
     }
-    
+     // when user's guess is lower that our secret number
 }else if (guess < secretNum){  
-    document.querySelector('.message').textContent = '📉 Too low';
-    score--;
-    document.querySelector('.score').textContent = score;
+    if(score > 1){
+        document.querySelector('.message').textContent = '📉 Too low';
+        score--;
+        document.querySelector('.score').textContent = score;
+    }else{
+        document.querySelector('.message').textContent = '😔 You lost !!!';
+        document.querySelector('.score').textContent = 0;
+    }
 }
 
 })
