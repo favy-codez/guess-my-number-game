@@ -53,6 +53,18 @@ if(! guess) {
         document.querySelector('.message').textContent = '😔 You lost !!!';
         document.querySelector('.score').textContent = 0;
     }
+    // using ternary operators for both (when the guess is high and low
+    // else if (guess !== secretNum){
+
+    // if(score > 1){
+    //     document.querySelector('.message').textContent = guess > secretNum ? '📈 Too high': '😔 You lost !!!';
+    //     score--;
+    //     document.querySelector('.score').textContent = score;
+    // }else{
+    //     document.querySelector('.message').textContent = '😔 You lost !!!';
+    //     document.querySelector('.score').textContent = 0;
+    // }
+    // }
 }
 });
 
