@@ -1,19 +1,5 @@
 'use strict';
 
-document.querySelector('.again').addEventListener('click', function(){
-    document.querySelector('body').style.backgroundColor = '#000';
-    secretNum = Math.floor(Math.random() * 20) + 1;;
-    score = 20;
-
-    document.querySelector('.message').textContent = 'Start guessing ...';
-    document.querySelector('.score').textContent = score;
-    document.querySelector('.number').textContent = '?';
-    // we are setting the value of this input tag to an empty string because, the value of an input tsg is always a string
-    document.querySelector('.guess').value = ' ';
-})
-
-// target secret number
-const secretNum = Math.floor(Math.random() * 20) + 1;
 // initialize score
 let score = 20;
 
@@ -22,7 +8,12 @@ document.querySelector('.check').addEventListener('click', function() {
     // convert the value of the input to number
     const guess = Number(document.querySelector('.guess').value);
     console.log('guess');
-    
+
+    // target secret number
+let secretNum = Math.floor(Math.random() * 20) + 1;
+
+// initialize score
+let score = 20;
 
 // create an if else statement
 // when there is no input
@@ -60,5 +51,18 @@ if(! guess) {
         document.querySelector('.score').textContent = 0;
     }
 }
+});
 
-})
+document.querySelector('.again').addEventListener('click', function(){
+    score = 20;
+    secretNum = Math.floor(Math.random() * 20) + 1;
+
+    document.querySelector('.message').textContent = 'Start guessing ...';
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.number').textContent = '?';
+    // we are setting the value of this input tag to an empty string because, the value of an input tsg is always a string
+    document.querySelector('.guess').value = ' ';
+
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
+});
