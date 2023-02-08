@@ -1,14 +1,21 @@
 'use strict';
-// document.querySelector('.guess').value = 33;
 
-// document.querySelector('highscore') = highscore;
+document.querySelector('.again').addEventListener('click', function(){
+    document.querySelector('body').style.backgroundColor = '#000';
+    secretNum = Math.floor(Math.random() * 20) + 1;;
+    score = 20;
+
+    document.querySelector('.message').textContent = 'Start guessing ...';
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.number').textContent = '?';
+    // we are setting the value of this input tag to an empty string because, the value of an input tsg is always a string
+    document.querySelector('.guess').value = ' ';
+})
 
 // target secret number
 const secretNum = Math.floor(Math.random() * 20) + 1;
 // initialize score
 let score = 20;
-
-document.querySelector('.number').textContent = secretNum ;
 
 //  add event lister to the check button
 document.querySelector('.check').addEventListener('click', function() {
@@ -24,6 +31,14 @@ if(! guess) {
     // when user wins
 }else if (guess === secretNum){
     document.querySelector('.message').textContent = '🎉 correct number!';
+
+    // display  secret number only when user gets correct answer
+    document.querySelector('.number').textContent = secretNum ;
+    
+    // change color of the body when user wins
+    document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
+
     // when user's guess is higher that our secret number
 }else if (guess > secretNum){  
     if(score > 1){
