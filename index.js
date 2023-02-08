@@ -1,19 +1,17 @@
 'use strict';
 
-// initialize score
-let score = 20;
+document.querySelector('highscore') = 'highScore';
+    // target secret number
+    let secretNum = Math.floor(Math.random() * 20) + 1;
+    // initialize score
+    let score = 20;
+    let highScore = 0;
 
 //  add event lister to the check button
-document.querySelector('.check').addEventListener('click', function() {
+    document.querySelector('.check').addEventListener('click', function() {
     // convert the value of the input to number
     const guess = Number(document.querySelector('.guess').value);
     console.log('guess');
-
-    // target secret number
-let secretNum = Math.floor(Math.random() * 20) + 1;
-
-// initialize score
-let score = 20;
 
 // create an if else statement
 // when there is no input
@@ -29,6 +27,11 @@ if(! guess) {
     // change color of the body when user wins
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+
+    // highscore
+    if(score > highScore){
+        highScore = score;
+    };
 
     // when user's guess is higher that our secret number
 }else if (guess > secretNum){  
